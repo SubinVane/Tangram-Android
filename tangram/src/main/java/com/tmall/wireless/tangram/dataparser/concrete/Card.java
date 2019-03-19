@@ -24,34 +24,6 @@
 
 package com.tmall.wireless.tangram.dataparser.concrete;
 
-import com.alibaba.android.vlayout.LayoutHelper;
-import com.alibaba.android.vlayout.Range;
-import com.alibaba.android.vlayout.layout.BaseLayoutHelper;
-import com.alibaba.android.vlayout.layout.FixAreaLayoutHelper;
-import com.alibaba.android.vlayout.layout.MarginLayoutHelper;
-
-import android.support.v4.util.ArrayMap;
-
-import com.tmall.wireless.tangram.Engine;
-import com.tmall.wireless.tangram.MVHelper;
-import com.tmall.wireless.tangram.TangramBuilder;
-import com.tmall.wireless.tangram.core.service.ServiceManager;
-import com.tmall.wireless.tangram.structure.BaseCell;
-import com.tmall.wireless.tangram.structure.TemplateInfo;
-import com.tmall.wireless.tangram.structure.card.BannerCard;
-import com.tmall.wireless.tangram.structure.card.LinearScrollCard;
-import com.tmall.wireless.tangram.support.CardSupport;
-import com.tmall.wireless.tangram.support.ExposureSupport;
-import com.tmall.wireless.tangram.support.TemplateUpdateSupport;
-import com.tmall.wireless.tangram.util.ImageUtils;
-import com.tmall.wireless.tangram.util.LogUtils;
-import com.tmall.wireless.tangram.util.Preconditions;
-import com.tmall.wireless.tangram.util.Utils;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -63,9 +35,33 @@ import android.view.ViewPropertyAnimator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.alibaba.android.vlayout.LayoutHelper;
+import com.alibaba.android.vlayout.Range;
+import com.alibaba.android.vlayout.layout.BaseLayoutHelper;
+import com.alibaba.android.vlayout.layout.FixAreaLayoutHelper;
+import com.alibaba.android.vlayout.layout.MarginLayoutHelper;
+import com.tmall.wireless.tangram.Engine;
+import com.tmall.wireless.tangram.MVHelper;
+import com.tmall.wireless.tangram.TangramBuilder;
+import com.tmall.wireless.tangram.core.service.ServiceManager;
+import com.tmall.wireless.tangram.structure.BaseCell;
+import com.tmall.wireless.tangram.structure.card.BannerCard;
+import com.tmall.wireless.tangram.structure.card.LinearScrollCard;
+import com.tmall.wireless.tangram.support.CardSupport;
+import com.tmall.wireless.tangram.support.ExposureSupport;
+import com.tmall.wireless.tangram.util.ImageUtils;
+import com.tmall.wireless.tangram.util.LogUtils;
+import com.tmall.wireless.tangram.util.Preconditions;
+import com.tmall.wireless.tangram.util.Utils;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -124,7 +120,7 @@ public abstract class Card extends ComponentLifecycle {
     protected BaseCell mFooter;
 
     @NonNull
-    protected ArrayMap<Range<Integer>, Card> mChildren = new ArrayMap<>();
+    protected Map<Range<Integer>, Card> mChildren = new HashMap<>();
 
     @NonNull
     protected List<BaseCell> mCells = new ArrayList<>();
@@ -289,7 +285,7 @@ public abstract class Card extends ComponentLifecycle {
 
                     cell.serviceManager = serviceManager; // ensure service manager
                 } else {
-                    if (Utils.isCard(cellData) && parent != null) {
+                    if (Utils.isCard(cellData)) {
                         switch (cellType) {
                             case TangramBuilder.TYPE_CONTAINER_FLOW:
                             case TangramBuilder.TYPE_CONTAINER_1C_FLOW:
@@ -350,28 +346,6 @@ public abstract class Card extends ComponentLifecycle {
             } else {
                 //support virtual view at layout
                 BaseCellBinderResolver componentBinderResolver = serviceManager.getService(BaseCellBinderResolver.class);
-
-                //if exist template need update, just do it
-                TemplateUpdateSupport templateUpdateSupport = serviceManager.getService(TemplateUpdateSupport.class);
-                if (templateUpdateSupport != null) {
-                    if (cellData.has(TemplateInfo.KEY_TEMPLATE_INFO)) {
-                        JSONObject templateInfoJson = cellData.optJSONObject(TemplateInfo.KEY_TEMPLATE_INFO);
-
-                        MVHelper mvHelper = serviceManager.getService(MVHelper.class);
-                        int currVersion = mvHelper.getVafContext().getViewManager().getViewVersion(cellType);
-                        int newVersion = templateInfoJson.optInt(TemplateInfo.KEY_TEMPLATE_VERSION);
-
-                        if (newVersion > currVersion) {
-                            TemplateInfo templateInfo = new TemplateInfo();
-                            templateInfo.setType(cellType);
-                            templateInfo.setBinary(templateInfoJson.optString(TemplateInfo.KEY_TEMPLATE_BINARY_BASE64));
-                            templateInfo.setVersion(newVersion);
-
-                            templateUpdateSupport.onUpdate(templateInfo);
-                        }
-                    }
-                }
-
                 if (componentBinderResolver.has(cellType)) {
                     cell = new BaseCell(cellType);
                     cell.serviceManager = serviceManager;
@@ -580,7 +554,7 @@ public abstract class Card extends ComponentLifecycle {
     }
 
     @NonNull
-    public ArrayMap<Range<Integer>, Card> getChildren() {
+    public Map<Range<Integer>, Card> getChildren() {
         return mChildren;
     }
 
@@ -1054,7 +1028,7 @@ public abstract class Card extends ComponentLifecycle {
     public Card findChildCardById(String id) {
         if (!mChildren.isEmpty()) {
             for (int i = 0, size = mChildren.size(); i < size; i++) {
-                Card card = mChildren.valueAt(i);
+                Card card = mChildren.get(i);
                 if (card != null && card.id.equals(id)) {
                     return card;
                 }
@@ -1063,7 +1037,7 @@ public abstract class Card extends ComponentLifecycle {
         return null;
     }
 
-    public ArrayMap<Range<Integer>, Card> getChildrenCards() {
+    public Map<Range<Integer>, Card> getChildrenCards() {
         return mChildren;
     }
 

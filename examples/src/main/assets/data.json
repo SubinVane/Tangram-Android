@@ -71,7 +71,7 @@
   },
   {
     "id": "banner1",
-    "type": 1,
+    "type": "container-oneColumn",
     "style": {
       "aspectRatio": 3.223
     },
@@ -89,6 +89,7 @@
     ]
   },
   {
+    "type":"container-banner",
     "style": {
       "pageWidth": 200,
       "pageHeight": 100,
@@ -106,37 +107,37 @@
     },
     "items": [
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info1",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info2",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info3",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info4",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info5",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info6",
         "style": {
         }
@@ -165,37 +166,37 @@
         },
         "items": [
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info1",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info2",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info3",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info4",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info5",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info6",
             "style": {
             }
@@ -226,37 +227,37 @@
         },
         "items": [
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info1",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info2",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info3",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info4",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info5",
             "style": {
             }
           },
           {
-            "type": "testView",
+            "type": 1,
             "msg": "info6",
             "style": {
             }
@@ -273,66 +274,79 @@
       "margin": [null, null, null, null],
       "padding": ["15", "15", "15", "15"]
     },
-    "type": 25,
-    "items": [{
-      "title": "A",
-      "type": 199
-    }, {
-      "title": "B",
-      "type": 199
-    }, {
-      "title": "C",
-      "type": 199
-    }, {
-      "title": "D",
-      "type": 199
-    }, {
-      "title": "E",
-      "type": 199
-    }, {
-      "title": "F",
-      "type": 199
-    }, {
-      "title": "G",
-      "type": 199
-    }, {
-      "title": "H",
-      "type": 199
-    }, {
-      "title": "I",
-      "type": 199
-    }, {
-      "title": "G",
-      "type": 199
-    }]
+    "type": "container-waterfall",
+    "items": [
+      {
+        "title": "A",
+        "type": 199
+      },
+      {
+        "title": "B",
+        "type": 199
+      },
+      {
+        "title": "C",
+        "type": 199
+      },
+      {
+        "title": "D",
+        "type": 199
+      },
+      {
+        "title": "E",
+        "type": 199
+      },
+      {
+        "title": "F",
+        "type": 199
+      },
+      {
+        "title": "G",
+        "type": 199
+      },
+      {
+        "title": "H",
+        "type": 199
+      },
+      {
+        "title": "I",
+        "type": 199
+      },
+      {
+        "title": "G",
+        "type": 199
+      }
+    ]
   },
   {
-    "type": 1,
+    "type": "container-oneColumn",
     "style": {
       "aspectRatio": 3.223
     },
     "items": [
       {
-        "type": "singleImgView",
+        "type": 10,
         "imgUrl": "https://gw.alicdn.com/tfs/TB1pdJFQpXXXXbUXpXXXXXXXXXX-750-243.png"
       },
       {
-        "type": "singleImgView",
+        "type": 10,
         "imgUrl": "https://gw.alicdn.com/tfs/TB1pdJFQpXXXXbUXpXXXXXXXXXX-750-243.png"
       }
     ]
   },
   {
-    "type": 20,
+    "type": "container-sticky",
     "style": {
       "sticky": "start"
 
     },
     "items": [
       {
-        "type": "testView",
+        "type": 1,
         "msg": "sticky",
         "style": {
+          "height": 80
+
         }
       }
     ]
@@ -355,37 +369,37 @@
     },
     "items": [
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info11",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info12",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info13",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info14",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info15",
         "style": {
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "msg": "info16",
         "style": {
         }
@@ -393,7 +407,7 @@
     ]
   },
   {
-    "type": "5",
+    "type": "container-onePlusN",
     "style": {
       "aspectRatio": "1.778",
       "cols": [
@@ -438,7 +452,7 @@
     ]
   },
   {
-    "type": "2",
+    "type": "container-twoColumn",
     "style": {
       "hGap": 10,
       "vGap": 10,
@@ -448,66 +462,66 @@
     },
     "items": [
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       }
     ]
   },
   {
-    "type": "3",
+    "type": "container-threeColumn",
     "items": [
       {
-        "type": "testView",
+        "type": 1,
         "msg": "block",
         "style": {
           "display": "block"
         }
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       }
     ]
   },
   {
-    "type": 4,
+    "type": "container-fourColumn",
     "items": [
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       }
     ]
   },
   {
-    "type": 28,
+    "type": "container-scrollFix",
     "id": "scrollFixShowOnEnter",
     "style": {
       "showType": "showONEnter"
     },
     "items": [
       {
-        "type": "testView",
+        "type": 1,
         "style": {
           "height": 120
         },
@@ -516,17 +530,17 @@
     ]
   },
   {
-    "type": 1,
+    "type": "container-oneColumn",
     "id": "dividerShow",
     "items": [
       {
-        "type": "testView",
+        "type": 1,
         "msg": "I am a divider"
       }
     ]
   },
   {
-    "type": 5,
+    "type": "container-onePlusN",
     "style": {
       "bgColor": "#e3e3e3",
       "cols": [
@@ -535,21 +549,21 @@
     },
     "items": [
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       }
     ]
   },
   {
-    "type": 5,
+    "type": "container-onePlusN",
     "style": {
       "cols": [
         40
@@ -557,7 +571,7 @@
     },
     "items": [
       {
-        "type": "testView",
+        "type": 1,
         "style": {
           "margin": [
             4,
@@ -568,7 +582,7 @@
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "style": {
           "margin": [
             0,
@@ -579,33 +593,33 @@
         }
       },
       {
-        "type": "testView"
+        "type": 1
       }
     ]
   },
   {
-    "type": 5,
+    "type": "container-onePlusN",
     "style": {
     },
     "items": [
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       }
     ]
   },
   {
-    "type": "1",
+    "type": "container-oneColumn",
     "items": [
       {
-        "type": "testView"
+        "type": 1
       }
     ]
   },
   {
-    "type": "9",
+    "type": "container-fiveColumn",
     "load": "com.tmall.request.test",
     "header": {
       "imgUrl": "https://gw.alicdn.com/tfs/TB1vqF.PpXXXXaRaXXXXXXXXXXX-110-72.png",
@@ -620,7 +634,7 @@
     ]
   },
   {
-    "type": "4",
+    "type": "container-fourColumn",
     "style": {
       "autoExpand": true,
       "enableColspan": true,
@@ -629,47 +643,48 @@
     },
     "items": [
       {
-        "type": "testView",
+        "type": 1,
         "style": {
           "colspan": 2
         }
       },
       {
-        "type": "testView",
+        "type": 1,
         "style": {
           "colspan": 2
         }
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       },
       {
-        "type": "testView"
+        "type": 1
       }
     ]
   },
   {
+    "type":"container-float",
     "style": {
       "align": "bottom_left",
-      "x": 200,
+      "x": 10,
       "y": 100
     },
     "items": [
@@ -684,14 +699,14 @@
             10,
             10
           ],
-          "height": 100,
-          "width": 100
+          "height": 50,
+          "width": 50
         }
       }
     ]
   },
   {
-    "type": "1",
+    "type": "container-oneColumn",
     "load": "com.tmall.request.load.more",
     "loadType": 1,
     "items": [
